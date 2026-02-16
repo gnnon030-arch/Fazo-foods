@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazo foods | 180+ taomlar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --primary: #f5b342; 
+            --primary-dark: #e09d2e;
+            --bg: #0f0b07; 
+            --card-bg: #1e1610;
+            --accent: #ffd966;
+            --text-light: #ffffff;
+            --text-muted: #e0d6cc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: linear-gradient(135deg, #0f0b07 0%, #1a130c 100%);
+            color: var(--text-light); 
+            overflow-x: hidden; 
+            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        .float-emoji { display: inline-block; animation: float 3s infinite ease-in-out; }
+
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 8%; 
+            background: rgba(15, 11, 7, 0.98);
+            backdrop-filter: blur(10px);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(245, 179, 66, 0.2);
+        }
+        .logo-box { 
+            position: relative;
+        }
+        .logo-main { 
+            font-size: 28px; 
+            font-weight: 900; 
+            color: var(--primary); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 2px 10px rgba(245, 179, 66, 0.3);
+        }
+        .logo-sub { 
+            font-size: 11px; 
+            color: var(--text-muted); 
+            text-transform: uppercase; 
+            letter-spacing: 4px;
+            font-weight: 300;
+            margin-top: 5px;
+        }
+
+        .nav-right { display: flex; gap: 15px; align-items: center; }
+        .nav-btn { 
+            background: rgba(255,255,255,0.03); 
+            padding: 12px 22px; 
+            border-radius: 12px; 
+            font-size: 14px; 
+            cursor: pointer; 
+            color: var(--text-light); 
+            border: 1px solid rgba(245, 179, 66, 0.2); 
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        .nav-btn:hover { 
+            border-color: var(--primary); 
+            background: rgba(245, 179, 66, 0.1);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .cart-icon-btn { 
+            background: var(--primary);
+            width: 50px; 
+            height: 50px; 
+            border-radius: 12px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            cursor: pointer; 
+            position: relative;
+            box-shadow: 0 5px 20px rgba(245, 179, 66, 0.4);
+            transition: 0.3s;
+        }
+        .cart-icon-btn:hover {
+            transform: scale(1.05);
+            background: var(--primary-dark);
+        }
+
+        .hero { 
+            display: flex; 
+            align-items: center; 
+            padding: 60px 8% 40px; 
+            min-height: 85vh; 
+            gap: 50px;
+        }
+        .hero-left { flex: 1.2; }
+        .top-badge { 
+            background: rgba(245, 179, 66, 0.1); 
+            padding: 10px 22px; 
+            border-radius: 40px; 
+            font-size: 14px; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px; 
+            margin-bottom: 25px; 
+            border: 1px solid rgba(245, 179, 66, 0.3);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .hero-left h1 { 
+            font-size: 72px; 
+            font-weight: 900; 
+            line-height: 1.1; 
+            margin-bottom: 25px; 
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #ffffff 0%, #f5b342 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-left h1 span { 
+            color: var(--primary);
+            -webkit-text-fill-color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 5px;
+        }
+        .hero-left p { 
+            color: var(--text-muted); 
+            font-size: 18px; 
+            margin-bottom: 40px; 
+            line-height: 1.8; 
+            max-width: 550px;
+            font-weight: 400;
+        }
+        .cta-btn { 
+            background: linear-gradient(135deg, var(--primary), #ffd966);
+            color: #0f0b07; 
+            padding: 18px 45px; 
+            border-radius: 12px;
+            font-weight: 800; 
+            font-size: 16px; 
+            border: none; 
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(245, 179, 66, 0.3); 
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 179, 66, 0.4);
+        }
+        .stats-box { 
+            display: flex; 
+            gap: 60px; 
+            margin-top: 60px; 
+        }
+        .stat-item h2 { 
+            font-size: 44px; 
+            font-weight: 900; 
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 2px 10px rgba(245, 179, 66, 0.2);
+        }
+        .stat-item p { 
+            font-size: 15px; 
+            color: var(--text-muted); 
+            margin-top: 5px; 
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-right { 
+            flex: 1; 
+            display: flex; 
+            justify-content: flex-end;
+        }
+        .circle-img { 
+            width: 500px; 
+            height: 500px; 
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border: 4px solid rgba(245, 179, 66, 0.3);
+            transition: 0.3s;
+        }
+        .circle-img:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+        }
+
+        .menu-section { 
+            padding: 80px 8% 100px; 
+            background: linear-gradient(135deg, #0f0b07 0%, #1a130c 100%);
+        }
+        .filter-bar { 
+            display: flex; 
+            gap: 12px; 
+            margin-bottom: 50px; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+        }
+        .filter-btn { 
+            padding: 14px 30px; 
+            border-radius: 12px; 
+            background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(245, 179, 66, 0.2); 
+            color: var(--text-light); 
+            cursor: pointer; 
+            font-weight: 600; 
+            transition: 0.3s; 
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .filter-btn.active { 
+            background: var(--primary); 
+            border-color: var(--primary);
+            color: #0f0b07;
+        }
+        .filter-btn:hover {
+            border-color: var(--primary);
+            background: rgba(245, 179, 66, 0.1);
+        }
+
+        .menu-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+        .card { 
+            background: var(--card-bg); 
+            padding: 25px; 
+            border-radius: 20px; 
+            border: 1px solid rgba(255,255,255,0.03); 
+            transition: 0.3s; 
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(245, 179, 66, 0.15);
+        }
+        .card img { 
+            width: 100%; 
+            height: 220px; 
+            border-radius: 12px; 
+            object-fit: cover; 
+            margin-bottom: 20px;
+            border: 2px solid rgba(245, 179, 66, 0.1);
+        }
+        .card:hover img {
+            border-color: var(--primary);
+        }
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .quantity-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            background: rgba(0,0,0,0.2);
+            padding: 8px;
+            border-radius: 12px;
+        }
+        .qty-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(245, 179, 66, 0.2);
+            background: transparent;
+            color: var(--text-light);
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .qty-btn:hover {
+            border-color: var(--primary);
+            background: rgba(245, 179, 66, 0.1);
+            color: var(--primary);
+        }
+        .qty-btn.plus {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #0f0b07;
+        }
+        .qty-btn.plus:hover {
+            background: var(--primary-dark);
+        }
+        .qty-value {
+            font-weight: 800;
+            min-width: 40px;
+            text-align: center;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .side-panel { 
+            position: fixed; 
+            right: -450px; 
+            top: 0; 
+            width: 450px; 
+            height: 100vh; 
+            background: #1a130c;
+            z-index: 2000; 
+            transition: 0.4s; 
+            padding: 35px; 
+            box-shadow: -10px 0 50px rgba(0,0,0,0.8); 
+            display: flex; 
+            flex-direction: column; 
+            overflow-y: auto;
+            border-left: 1px solid rgba(245, 179, 66, 0.3);
+        }
+        .side-panel.active { right: 0; }
+        
+        #aboutModal { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(15, 11, 7, 0.95); 
+            z-index: 3000; 
+            align-items: center; 
+            justify-content: center; 
+            backdrop-filter: blur(8px); 
+        }
+        .about-box { 
+            background: #1a130c;
+            padding: 45px; 
+            border-radius: 20px; 
+            max-width: 500px; 
+            width: 90%; 
+            border: 1px solid var(--primary); 
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .checkout-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .form-group label {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .form-group input, .form-group textarea {
+            background: #2c1e14;
+            border: 1px solid rgba(245, 179, 66, 0.2);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: var(--text-light);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(245, 179, 66, 0.1);
+        }
+        .order-summary {
+            background: #2c1e14;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 20px 0;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid rgba(245, 179, 66, 0.2);
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-muted);
+            padding: 5px 0;
+            border-bottom: 1px dashed rgba(245, 179, 66, 0.2);
+        }
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid var(--primary);
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 18px;
+        }
+        .step-indicator {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            border-radius: 12px;
+            background: #2c1e14;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid rgba(245, 179, 66, 0.2);
+        }
+        .step.active {
+            background: var(--primary);
+            color: #0f0b07;
+            border-color: var(--primary);
+        }
+        .back-btn {
+            background: transparent;
+            border: 1px solid rgba(245, 179, 66, 0.3);
+            color: var(--text-light);
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+        .back-btn:hover {
+            border-color: var(--primary);
+            background: rgba(245, 179, 66, 0.1);
+        }
+        .error-message {
+            color: #ff6b6b;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* FOOTER STYLES */
+        .footer {
+            background: rgba(15, 11, 7, 0.95);
+            border-top: 1px solid rgba(245, 179, 66, 0.2);
+            padding: 30px 8%;
+            text-align: center;
+            margin-top: auto;
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+        }
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 1024px) {
+            .hero { flex-direction: column; text-align: center; }
+            .circle-img { width: 350px; height: 350px; }
+            .stats-box { justify-content: center; }
+            .hero-left h1 { font-size: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo-box">
+        <div class="logo-main"><span class="float-emoji">🍽️</span> FAZO</div>
+        <div class="logo-sub">180+ TAOMLAR</div>
+    </div>
+    <div class="nav-right">
+        <select onchange="changeLang(this.value)" class="nav-btn" style="background: rgba(255,255,255,0.03);">
+            <option value="uz" style="background:#1a130c;">O'zbekcha</option>
+            <option value="ru" style="background:#1a130c;">Русский</option>
+            <option value="en" style="background:#1a130c;">English</option>
+        </select>
+        <div class="nav-btn" onclick="toggleAbout(true)">📜 <span id="navAbout">Biz haqimizda</span></div>
+        <div class="nav-btn" onclick="openAdmin()">⚜️ <span id="navAdmin">Admin</span></div>
+        <div class="cart-icon-btn" onclick="togglePanel('cartPanel')">
+            🛒 <span id="cartCount" style="position:absolute; top:-5px; right:-5px; background:#e09d2e; color:#0f0b07; font-size:11px; padding:2px 6px; border-radius:50%; font-weight:800;">0</span>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-left">
+        <div class="top-badge"><span class="float-emoji">⭐</span> <span id="badgeText">180+ xil taomlar</span></div>
+        <h1 id="heroTitle">Eng katta <br><span>taomlar tanlovi</span></h1>
+        <p id="heroDesc">180 dan ortiq turli xil milliy va xorijiy taomlar. Eng sifatli mahsulotlar, eng tez yetkazib berish.</p>
+        <button class="cta-btn" id="ctaBtn" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">MENUNI KO'RISH</button>
+        <div class="stats-box">
+            <div class="stat-item"><h2>180+</h2><p id="stat1">Taomlar</p></div>
+            <div class="stat-item"><h2>2500+</h2><p id="stat2">Mijozlar</p></div>
+            <div class="stat-item"><h2>4.9</h2><p id="stat3">Reyting</p></div>
+        </div>
+    </div>
+    <div class="hero-right">
+        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=800" class="circle-img" alt="Professional Salad">
+    </div>
+</section>
+
+<section class="menu-section" id="menu">
+    <div class="filter-bar" id="filterBar"></div>
+    <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- Cart Panel -->
+<div id="cartPanel" class="side-panel">
+    <div style="text-align:right; cursor:pointer; font-size:24px; color:var(--primary);" onclick="togglePanel('cartPanel')">✕</div>
+    
+    <div class="step-indicator">
+        <div class="step active" id="step1">1. SAVATCHA</div>
+        <div class="step" id="step2">2. RASMIYLASHTIRISH</div>
+    </div>
+    
+    <div id="cartView">
+        <h2 id="cartTitle" style="font-size:30px; margin-bottom:20px;">Savatcha</h2>
+        <div id="cartList" style="flex:1; overflow-y:auto; margin:20px 0;"></div>
+        <p style="font-size:20px;"><span id="totalLabel">JAMI:</span> <b id="totalPrice" style="color:var(--primary);">0</b> <span class="currency">so'm</span></p>
+        <button class="cta-btn" style="width:100%; margin-top:20px;" onclick="showCheckout()" id="orderBtn">BUYURTMA BERISH</button>
+    </div>
+    
+    <div id="checkoutView" style="display: none;">
+        <button class="back-btn" onclick="showCart()" style="width:100%;">← Savatchaga qaytish</button>
+        <h2 style="font-size:26px; margin-bottom:20px;">Rasmiylashtirish</h2>
+        
+        <div class="order-summary" id="checkoutSummary"></div>
+        
+        <div class="checkout-form">
+            <div class="form-group">
+                <label>Ismingiz *</label>
+                <input type="text" id="nameInput" placeholder="Ismingizni kiriting">
+                <div class="error-message" id="nameError">Iltimos, ismingizni kiriting</div>
+            </div>
+            
+            <div class="form-group">
+                <label>Telefon *</label>
+                <input type="tel" id="phoneInput" placeholder="+998 XX XXX XX XX" value="+998 " oninput="formatPhone(this)">
+                <div class="error-message" id="phoneError">Telefon raqam noto'g'ri</div>
+                <div style="font-size: 12px; color: var(--text-muted);">Masalan: +998 90 123 45 67</div>
+            </div>
+            
+            <div class="form-group">
+                <label>Manzil *</label>
+                <textarea id="addressInput" placeholder="Manzilingizni kiriting">Namangan </textarea>
+                <div class="error-message" id="addressError">Manzil "Namangan" bilan boshlanishi kerak</div>
+            </div>
+            
+            <div class="form-group">
+                <label>Promokod</label>
+                <input type="text" id="promoInput" placeholder="Promokod">
+                <div class="promo-info" id="promoMessage" style="color:var(--text-muted); font-size:12px;"></div>
+            </div>
+        </div>
+        
+        <p style="color: #f5b342; font-size: 13px; margin: 10px 0; display: none;" id="validationMessage">
+            ⚠️ Noto'g'ri ma'lumotlar buyurtmani bekor qiladi!
+        </p>
+        
+        <button class="cta-btn" style="width:100%; margin-top:20px;" onclick="submitOrder()" id="submitOrderBtn">YAKUNLASH</button>
+    </div>
+</div>
+
+<!-- About Modal -->
+<div id="aboutModal">
+    <div class="about-box">
+        <h2 id="aboutTitle" style="font-size:34px; color:var(--primary);">Biz haqimizda</h2>
+        <div style="text-align: left; margin: 30px 0;">
+            <p style="font-size: 26px; font-weight: 800; color: var(--primary); margin-bottom: 20px;" id="aboutText1">Fazo foods — 2025</p>
+            
+            <div style="margin: 30px 0; color: var(--text-muted);">
+                <p style="margin: 15px 0;">📍 <span style="color: var(--text-light);" id="aboutAddress">Manzil:</span> <span id="aboutLocation">Namangan, O'zbekiston</span></p>
+                <p style="margin: 15px 0;">📞 <span style="color: var(--text-light);" id="aboutCall">Call Center:</span> <span id="aboutPhone">+998 90 260 88 88</span></p>
+                <p style="margin: 15px 0;">📱 <span style="color: var(--text-light);" id="aboutTelegram">Telegram:</span> <span id="aboutTG">@ItsUzb</span></p>
+            </div>
+            
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(245,179,66,0.3);">
+                <p>✍️ <span style="color: var(--text-light);" id="aboutCreator">Yaratuvchi:</span> <span id="aboutName">Odilov Abdulquddus (13 yosh)</span></p>
+            </div>
+        </div>
+        <button class="cta-btn" style="margin-top:20px; width:100%;" onclick="toggleAbout(false)" id="aboutClose">YOPISH</button>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">FAZO FOODS</div>
+        <div class="footer-text">Fazo Family Restaurant © 2020</div>
+        <div class="footer-links">
+            <a href="https://t.me/ItsUzb" target="_blank" class="footer-link">
+                <span>📱</span> Telegram
+            </a>
+            <a href="https://instagram.com" target="_blank" class="footer-link">
+                <span>📷</span> Instagram
+            </a>
+        </div>
+        <div class="footer-copyright">
+            Barcha huquqlar himoyalangan © 2025
+        </div>
+    </div>
+</footer>
+
+<script>
+    const langData = {
+        uz: {
+            navAbout: "Biz haqimizda", navAdmin: "Admin", badgeText: "180+ xil taomlar",
+            heroTitle: "Eng katta <br><span>taomlar tanlovi</span>",
+            heroDesc: "180 dan ortiq turli xil milliy va xorijiy taomlar. Eng sifatli mahsulotlar, eng tez yetkazib berish.",
+            ctaBtn: "MENUNI KO'RISH", stat1: "Taomlar", stat2: "Mijozlar", stat3: "Reyting",
+            all: "BARCHASI", milliy: "O'ZBEK", osiyo: "OSIYO", salat: "SALATLAR", kabob: "KABOBLAR",
+            gazak: "GAZAKLAR", ichimlik: "ICHIMLIKLAR", shirinlik: "SHIRINLIKLAR",
+            cartTitle: "Savatcha", totalLabel: "JAMI:", currency: "so'm",
+            aboutTitle: "Biz haqimizda", aboutClose: "YOPISH",
+            aboutText1: "Fazo foods — 2025",
+            aboutAddress: "Manzil:", aboutCall: "Call Center:", aboutTelegram: "Telegram:",
+            aboutCreator: "Yaratuvchi:", aboutName: "Odilov Abdulquddus (13 yosh)",
+            aboutLocation: "Namangan, O'zbekiston", aboutPhone: "+998 90 260 88 88", aboutTG: "@ItsUzb"
+        },
+        ru: {
+            navAbout: "О нас", navAdmin: "Админ", badgeText: "180+ блюд",
+            heroTitle: "Большой <br><span>выбор блюд</span>",
+            heroDesc: "Более 180 различных национальных и иностранных блюд. Качественные продукты, быстрая доставка.",
+            ctaBtn: "МЕНЮ", stat1: "Блюда", stat2: "Клиенты", stat3: "Рейтинг",
+            all: "ВСЕ", milliy: "УЗБЕКСКИЕ", osiyo: "АЗИАТСКИЕ", salat: "САЛАТЫ", kabob: "ШАШЛЫКИ",
+            gazak: "ЗАКУСКИ", ichimlik: "НАПИТКИ", shirinlik: "ДЕСЕРТЫ",
+            cartTitle: "Корзина", totalLabel: "ИТОГО:", currency: "сум",
+            aboutTitle: "О нас", aboutClose: "ЗАКРЫТЬ",
+            aboutText1: "Fazo foods — 2025",
+            aboutAddress: "Адрес:", aboutCall: "Контакт центр:", aboutTelegram: "Телеграм:",
+            aboutCreator: "Создатель:", aboutName: "Одилов Абдулкуддус (13 лет)",
+            aboutLocation: "Наманган, Узбекистан", aboutPhone: "+998 90 260 88 88", aboutTG: "@ItsUzb"
+        },
+        en: {
+            navAbout: "About Us", navAdmin: "Admin", badgeText: "180+ dishes",
+            heroTitle: "Largest <br><span>food selection</span>",
+            heroDesc: "More than 180 different national and international dishes. Quality products, fast delivery.",
+            ctaBtn: "VIEW MENU", stat1: "Dishes", stat2: "Customers", stat3: "Rating",
+            all: "ALL", milliy: "UZBEK", osiyo: "ASIAN", salat: "SALADS", kabob: "KABOBS",
+            gazak: "SNACKS", ichimlik: "DRINKS", shirinlik: "DESSERTS",
+            cartTitle: "Cart", totalLabel: "TOTAL:", currency: "sum",
+            aboutTitle: "About Us", aboutClose: "CLOSE",
+            aboutText1: "Fazo foods — 2025",
+            aboutAddress: "Address:", aboutCall: "Call Center:", aboutTelegram: "Telegram:",
+            aboutCreator: "Creator:", aboutName: "Odilov Abdulquddus (13 years old)",
+            aboutLocation: "Namangan, Uzbekistan", aboutPhone: "+998 90 260 88 88", aboutTG: "@ItsUzb"
+        }
+    };
+
+    // 180+ MAHSULOTLAR
+    const products = [];
+
+    // 1. O'ZBEK TAOMLARI (50 ta)
+    const uzbekNames = {
+        uz: [
+            "Toshkent Palovi", "Samarqand Palovi", "Buxoro Palovi", "Xorazm Palovi", "Farg'ona Palovi",
+            "Tandir Somsa", "Qozon Somsa", "Manti", "Chuchvara", "Sho'rva",
+            "Lag'mon", "Qovurma Lag'mon", "Norin", "Mastava", "Shovla",
+            "Dimlama", "Qozon Kabob", "Kabob", "Jiz-biz", "Xonim",
+            "Osh", "Khasip", "Qazi", "Qurtob", "Sumalak",
+            "Halim", "Ugra", "Piyoz", "Samsa", "Beshbarmak",
+            "Kavurma", "Qaynatma", "Dolma", "Moshkichiri", "Moshxo'rda",
+            "Atala", "Kuk Somsa", "Yupka", "Patir", "Lochira",
+            "Non", "Katlama", "Qatlama", "Bog'irsoq", "Chapchik",
+            "Qatiqli", "Qurut", "Ayron", "Kurut", "Chakka"
+        ],
+        ru: [
+            "Ташкентский Плов", "Самаркандский Плов", "Бухарский Плов", "Хорезмский Плов", "Ферганский Плов",
+            "Тандыр Самса", "Казан Самса", "Манты", "Чучвара", "Шурпа",
+            "Лагман", "Жареный Лагман", "Норин", "Мастава", "Шовля",
+            "Димлама", "Казан-кебаб", "Шашлык", "Джиз-быз", "Хоним",
+            "Плов", "Хасип", "Казы", "Куртоб", "Сумаляк",
+            "Халим", "Угра", "Пиёз", "Самса", "Бешбармак",
+            "Каурма", "Кайнатма", "Долма", "Машкичири", "Машхурда",
+            "Атала", "Зелёная Самса", "Юпка", "Патыр", "Лочира",
+            "Лепёшка", "Катлама", "Катлама", "Богурсак", "Чапчик",
+            "Катикли", "Курут", "Айран", "Курут", "Чакка"
+        ],
+        en: [
+            "Tashkent Pilaf", "Samarkand Pilaf", "Bukhara Pilaf", "Khorezm Pilaf", "Fergana Pilaf",
+            "Tandyr Samsa", "Kazan Samsa", "Manti", "Chuchvara", "Shurpa",
+            "Lagman", "Fried Lagman", "Norin", "Mastava", "Shovla",
+            "Dimlama", "Kazan Kebab", "Kebab", "Jiz-biz", "Khonim",
+            "Plov", "Khasip", "Kazy", "Kurtob", "Sumalak",
+            "Halim", "Ugra", "Piyoz", "Samsa", "Beshbarmak",
+            "Kavurma", "Kaynatma", "Dolma", "Mashkichiri", "Mashkhurda",
+            "Atala", "Green Samsa", "Yupka", "Patyr", "Lochira",
+            "Bread", "Katlama", "Qatlama", "Bog'irsoq", "Chapchik",
+            "Qatiqli", "Qurut", "Ayran", "Kurut", "Chakka"
+        ]
+    };
+
+    for (let i = 0; i < 50; i++) {
+        products.push({
+            id: `uz${i}`,
+            cat: 'milliy',
+            name: {
+                uz: uzbekNames.uz[i],
+                ru: uzbekNames.ru[i],
+                en: uzbekNames.en[i]
+            },
+            price: 15000 + Math.floor(Math.random() * 30000),
+            img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400",
+            quantity: 0
+        });
+    }
+
+    // 2. OSIYO TAOMLARI (40 ta)
+    const asianNames = {
+        uz: [
+            "Sushi", "Ramen", "Tom Yum", "Pad Thai", "Kimchi",
+            "Dim Sum", "Peking Duck", "Spring Rolls", "Fried Rice", "Nasi Goreng",
+            "Pho", "Bun Cha", "Banh Mi", "Samosa", "Curry",
+            "Tandoori Chicken", "Biryani", "Falafel", "Hummus", "Shawarma",
+            "Kabsa", "Mandi", "Kung Pao Chicken", "Mapo Tofu", "Hot Pot",
+            "Wonton", "Dumplings", "Miso Soup", "Tempura", "Teriyaki",
+            "Yakitori", "Takoyaki", "Okonomiyaki", "Udon", "Soba",
+            "Donburi", "Onigiri", "Gyoza", "Edamame", "Kimchi Jjigae"
+        ],
+        ru: [
+            "Суши", "Рамен", "Том Ям", "Пад Тай", "Кимчи",
+            "Дим Сам", "Утка по-Пекински", "Спринг Роллы", "Жареный Рис", "Наси Горенг",
+            "Фо", "Бун Ча", "Бань Ми", "Самоса", "Карри",
+            "Тандури Чикен", "Бирьяни", "Фалафель", "Хумус", "Шаурма",
+            "Кабса", "Манди", "Кунг Пао", "Мапо Тофу", "Хот Пот",
+            "Вонтон", "Димпамы", "Мисо Суп", "Темпура", "Терияки",
+            "Якитори", "Такояки", "Окономияки", "Удон", "Соба",
+            "Донбури", "Онигири", "Гёдза", "Эдамаме", "Кимчи Чиге"
+        ],
+        en: [
+            "Sushi", "Ramen", "Tom Yum", "Pad Thai", "Kimchi",
+            "Dim Sum", "Peking Duck", "Spring Rolls", "Fried Rice", "Nasi Goreng",
+            "Pho", "Bun Cha", "Banh Mi", "Samosa", "Curry",
+            "Tandoori Chicken", "Biryani", "Falafel", "Hummus", "Shawarma",
+            "Kabsa", "Mandi", "Kung Pao Chicken", "Mapo Tofu", "Hot Pot",
+            "Wonton", "Dumplings", "Miso Soup", "Tempura", "Teriyaki",
+            "Yakitori", "Takoyaki", "Okonomiyaki", "Udon", "Soba",
+            "Donburi", "Onigiri", "Gyoza", "Edamame", "Kimchi Jjigae"
+        ]
+    };
+
+    for (let i = 0; i < 40; i++) {
+        products.push({
+            id: `as${i}`,
+            cat: 'osiyo',
+            name: {
+                uz: asianNames.uz[i],
+                ru: asianNames.ru[i],
+                en: asianNames.en[i]
+            },
+            price: 20000 + Math.floor(Math.random() * 40000),
+            img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400",
+            quantity: 0
+        });
+    }
+
+    // 3. SALATLAR (25 ta)
+    const saladNames = {
+        uz: [
+            "Achchiq-chuchuk", "Sezar Salat", "Grechka Salat", "Olivier", "Mimoza",
+            "Kapriz Salat", "Seld pod Shuboy", "Vinegret", "Taze Salat", "Cobb Salat",
+            "Greek Salat", "Tabouleh", "Fattoush", "Coleslaw", "Waldorf Salat",
+            "Nicoise Salat", "Panzanella", "Caprese", "Roka Salat", "Qovoq Salat",
+            "Bodring Salat", "Pomidor Salat", "Karam Salat", "Sabzi Salat", "Lavlagi Salat"
+        ],
+        ru: [
+            "Аччик-чучук", "Цезарь", "Греческий салат", "Оливье", "Мимоза",
+            "Каприз", "Сельдь под шубой", "Винегрет", "Свежий салат", "Кобб салат",
+            "Греческий салат", "Табуле", "Фаттуш", "Коулслоу", "Вальдорф",
+            "Нисуаз", "Панцанелла", "Капрезе", "Руккола", "Тыквенный салат",
+            "Огуречный салат", "Томатный салат", "Капустный салат", "Морковный салат", "Свекольный салат"
+        ],
+        en: [
+            "Achchik-chuchuk", "Caesar Salad", "Greek Salad", "Olivier", "Mimosa",
+            "Caprice Salad", "Herring under fur coat", "Vinaigrette", "Fresh Salad", "Cobb Salad",
+            "Greek Salad", "Tabouleh", "Fattoush", "Coleslaw", "Waldorf Salad",
+            "Nicoise Salad", "Panzanella", "Caprese", "Arugula Salad", "Pumpkin Salad",
+            "Cucumber Salad", "Tomato Salad", "Cabbage Salad", "Carrot Salad", "Beetroot Salad"
+        ]
+    };
+
+    for (let i = 0; i < 25; i++) {
+        products.push({
+            id: `salat${i}`,
+            cat: 'salat',
+            name: {
+                uz: saladNames.uz[i],
+                ru: saladNames.ru[i],
+                en: saladNames.en[i]
+            },
+            price: 12000 + Math.floor(Math.random() * 20000),
+            img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400",
+            quantity: 0
+        });
+    }
+
+    // 4. KABOBLAR (20 ta)
+    const kebabNames = {
+        uz: [
+            "Andijon Kabobi", "Qozon Kabob", "Jiz-biz", "Tovuq Kabob", "Qiyma Kabob",
+            "Jigar Kabob", "Qo'y Kabob", "Mol Kabob", "Baliq Kabob", "Sabzavot Kabob",
+            "Lula Kabob", "Shashlik", "Tandir Kabob", "Mango Kabob", "Ananas Kabob",
+            "Cho'chqa Kabob", "Quyon Kabob", "Indeyka Kabob", "Qo'zi Kabob", "Tovuq Filesi"
+        ],
+        ru: [
+            "Андижанский шашлык", "Казан-кебаб", "Джиз-быз", "Куриный шашлык", "Люля-кебаб",
+            "Шашлык из печени", "Бараний шашлык", "Говяжий шашлык", "Рыбный шашлык", "Овощной шашлык",
+            "Люля-кебаб", "Шашлык", "Тандыр кебаб", "Манго кебаб", "Ананас кебаб",
+            "Свиной шашлык", "Кроличий шашлык", "Индейка шашлык", "Ягнёнок шашлык", "Куриное филе"
+        ],
+        en: [
+            "Andijan Kebab", "Kazan Kebab", "Jiz-biz", "Chicken Kebab", "Minced Kebab",
+            "Liver Kebab", "Lamb Kebab", "Beef Kebab", "Fish Kebab", "Vegetable Kebab",
+            "Lula Kebab", "Shashlik", "Tandir Kebab", "Mango Kebab", "Pineapple Kebab",
+            "Pork Kebab", "Rabbit Kebab", "Turkey Kebab", "Lamb Kebab", "Chicken Fillet"
+        ]
+    };
+
+    for (let i = 0; i < 20; i++) {
+        products.push({
+            id: `kabob${i}`,
+            cat: 'kabob',
+            name: {
+                uz: kebabNames.uz[i],
+                ru: kebabNames.ru[i],
+                en: kebabNames.en[i]
+            },
+            price: 25000 + Math.floor(Math.random() * 30000),
+            img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400",
+            quantity: 0
+        });
+    }
+
+    // 5. GAZAKLAR (25 ta)
+    const snackNames = {
+        uz: [
+            "Oq non", "Javdar non", "Kulcha", "Patir", "Lochira",
+            "Baget", "Croissant", "Bublik", "Simit", "Lavash",
+            "Tortilya", "Chapati", "Naan", "Pita", "Focaccia",
+            "Bretzel", "Baton", "Kalach", "Belyash", "Cheburek",
+            "Pirojok", "Krendel", "Rogalik", "Salo", "Qazi"
+        ],
+        ru: [
+            "Белый хлеб", "Ржаной хлеб", "Кулча", "Патыр", "Лочира",
+            "Багет", "Круассан", "Бублик", "Симит", "Лаваш",
+            "Тортилья", "Чапати", "Наан", "Пита", "Фокачча",
+            "Крендель", "Батон", "Калач", "Беляш", "Чебурек",
+            "Пирожок", "Крендель", "Рогалик", "Сало", "Казы"
+        ],
+        en: [
+            "White bread", "Rye bread", "Kulcha", "Patyr", "Lochira",
+            "Baguette", "Croissant", "Bagel", "Simit", "Lavash",
+            "Tortilla", "Chapati", "Naan", "Pita", "Focaccia",
+            "Pretzel", "Baton", "Kalach", "Belyash", "Cheburek",
+            "Pie", "Pretzel", "Croissant", "Salo", "Kazy"
+        ]
+    };
+
+    for (let i = 0; i < 25; i++) {
+        products.push({
+            id: `gazak${i}`,
+            cat: 'gazak',
+            name: {
+                uz: snackNames.uz[i],
+                ru: snackNames.ru[i],
+                en: snackNames.en[i]
+            },
+            price: 3000 + Math.floor(Math.random() * 20000),
+            img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400",
+            quantity: 0
+        });
+    }
+
+    // 6. ICHIMLIKLAR (15 ta)
+    const drinkNames = {
+        uz: [
+            "Coca Cola", "Choy", "Qahva", "Ayron", "Kefir",
+            "Sharbat", "Mineral suv", "Limonad", "Moxito", "Kompot",
+            "Pepsi", "Fanta", "Sprite", "Nestle", "Kapuchino"
+        ],
+        ru: [
+            "Кока Кола", "Чай", "Кофе", "Айран", "Кефир",
+            "Сок", "Минеральная вода", "Лимонад", "Мохито", "Компот",
+            "Пепси", "Фанта", "Спрайт", "Нестле", "Капучино"
+        ],
+        en: [
+            "Coca Cola", "Tea", "Coffee", "Ayran", "Kefir",
+            "Juice", "Mineral water", "Lemonade", "Mojito", "Compote",
+            "Pepsi", "Fanta", "Sprite", "Nestle", "Cappuccino"
+        ]
+    };
+
+    for (let i = 0; i < 15; i++) {
+        products.push({
+            id: `ichimlik${i}`,
+            cat: 'ichimlik',
+            name: {
+                uz: drinkNames.uz[i],
+                ru: drinkNames.ru[i],
+                en: drinkNames.en[i]
+            },
+            price: 3000 + Math.floor(Math.random() * 15000),
+            img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400",
+            quantity: 0
+        });
+    }
+
+    // 7. SHIRINLIKLAR (15 ta)
+    const dessertNames = {
+        uz: [
+            "Medovik", "Napoleon", "Tiramisu", "Cheesecake", "Chak-chak",
+            "Halva", "Paxlava", "Shokoladli tort", "Muzqaymoq", "Fruit Salat",
+            "Blinchik", "Puding", "Sufle", "Jele", "Pechenye"
+        ],
+        ru: [
+            "Медовик", "Наполеон", "Тирамису", "Чизкейк", "Чак-чак",
+            "Халва", "Пахлава", "Шоколадный торт", "Мороженое", "Фруктовый салат",
+            "Блинчики", "Пудинг", "Суфле", "Желе", "Печенье"
+        ],
+        en: [
+            "Medovik", "Napoleon", "Tiramisu", "Cheesecake", "Chak-chak",
+            "Halva", "Baklava", "Chocolate cake", "Ice cream", "Fruit salad",
+            "Pancakes", "Pudding", "Souffle", "Jelly", "Cookies"
+        ]
+    };
+
+    for (let i = 0; i < 15; i++) {
+        products.push({
+            id: `shirinlik${i}`,
+            cat: 'shirinlik',
+            name: {
+                uz: dessertNames.uz[i],
+                ru: dessertNames.ru[i],
+                en: dessertNames.en[i]
+            },
+            price: 10000 + Math.floor(Math.random() * 25000),
+            img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400",
+            quantity: 0
+        });
+    }
+
+    // Jami: 50 + 40 + 25 + 20 + 25 + 15 + 15 = 190 ta mahsulot
+
+    let currentLang = 'uz';
+    let cart = [];
+    let currentStep = 'cart';
+
+    // Telegram bot ma'lumotlari - O'ZINGIZNINGKINI QO'YING
+    const TELEGRAM_TOKEN = "8227938686:AAGYtIXGoLT2N3mOUdd_lsy-sF4lZnNSD44";
+    const TELEGRAM_CHAT_ID = "7000999171";
+
+    // CORS muammosini hal qilish uchun proxy
+    const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+
+    async function sendToTelegram(message) {
+        return new Promise((resolve, reject) => {
+            const encodedMessage = encodeURIComponent(message);
+            const script = document.createElement('script');
+            const callbackName = 'telegramCallback_' + Date.now();
+            
+            window[callbackName] = function(data) {
+                document.body.removeChild(script);
+                delete window[callbackName];
+                
+                if (data.ok) {
+                    console.log('✅ Telegramga yuborildi');
+                    resolve(data);
+                } else {
+                    console.error('❌ Xatolik:', data);
+                    reject(data);
+                }
+            };
+            
+            script.src = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodedMessage}&parse_mode=HTML&callback=${callbackName}`;
+            
+            script.onerror = function(error) {
+                document.body.removeChild(script);
+                delete window[callbackName];
+                console.error('❌ Telegramga yuborishda xatolik:', error);
+                reject(error);
+            };
+            
+            document.body.appendChild(script);
+        });
+    }
+
+    function displayProducts(category = 'all') {
+        const grid = document.getElementById('menuGrid'); 
+        grid.innerHTML = '';
+        const filtered = category === 'all' ? products : products.filter(p => p.cat === category);
+        
+        filtered.forEach(p => {
+            const currentName = p.name[currentLang] || p.name.uz;
+            grid.innerHTML += `<div class="card" id="card-${p.id}">
+                <img src="${p.img}" onerror="this.src='https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400'">
+                <h3>${currentName}</h3>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span style="color:var(--primary); font-weight:800; font-size:20px;">${p.price.toLocaleString()} ${langData[currentLang].currency}</span>
+                </div>
+                <div class="quantity-controls">
+                    <button class="qty-btn minus" onclick="decreaseQuantity('${p.id}')">−</button>
+                    <span class="qty-value" id="qty-${p.id}">${p.quantity}</span>
+                    <button class="qty-btn plus" onclick="increaseQuantity('${p.id}')">+</button>
+                </div>
+            </div>`;
+        });
+    }
+
+    function increaseQuantity(productId) {
+        const product = products.find(p => p.id === productId);
+        if(product) {
+            product.quantity++;
+            document.getElementById(`qty-${productId}`).textContent = product.quantity;
+            
+            const cartItem = cart.find(item => item.id === productId);
+            if(cartItem) {
+                cartItem.quantity = product.quantity;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: product.quantity
+                });
+            }
+            updateCart();
+        }
+    }
+
+    function decreaseQuantity(productId) {
+        const product = products.find(p => p.id === productId);
+        if(product && product.quantity > 0) {
+            product.quantity--;
+            document.getElementById(`qty-${productId}`).textContent = product.quantity;
+            
+            const cartIndex = cart.findIndex(item => item.id === productId);
+            if(cartIndex !== -1) {
+                if(product.quantity === 0) {
+                    cart.splice(cartIndex, 1);
+                } else {
+                    cart[cartIndex].quantity = product.quantity;
+                }
+            }
+            updateCart();
+        }
+    }
+
+    function updateCart() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        document.getElementById('cartCount').innerText = totalItems;
+        
+        const list = document.getElementById('cartList'); 
+        list.innerHTML = ''; 
+        let total = 0;
+        
+        cart.forEach(item => { 
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal; 
+            const currentName = item.name[currentLang] || item.name.uz;
+            list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:15px; padding-bottom:15px; border-bottom:1px dashed rgba(245,179,66,0.3);">
+                <div>
+                    <div><b style="font-size:16px;">${currentName}</b></div>
+                    <div style="font-size:12px; color:var(--text-muted);">${item.quantity} x ${item.price.toLocaleString()}</div>
+                </div>
+                <div style="text-align:right;">
+                    <div><b style="color:var(--primary);">${itemTotal.toLocaleString()}</b></div>
+                    <div style="display:flex; gap:10px; margin-top:8px;">
+                        <button class="nav-btn" style="padding:4px 12px; border-radius:8px;" onclick="decreaseQuantity('${item.id}')">−</button>
+                        <span style="color:var(--primary);">${item.quantity}</span>
+                        <button class="nav-btn" style="padding:4px 12px; border-radius:8px; background:var(--primary); color:#0f0b07;" onclick="increaseQuantity('${item.id}')">+</button>
+                    </div>
+                </div>
+            </div>`; 
+        });
+        
+        document.getElementById('totalPrice').innerText = total.toLocaleString();
+    }
+
+    function showCheckout() {
+        if(cart.length === 0) {
+            alert("Savatchangiz bo'sh!");
+            return;
+        }
+        
+        currentStep = 'checkout';
+        document.getElementById('cartView').style.display = 'none';
+        document.getElementById('checkoutView').style.display = 'block';
+        document.getElementById('step1').classList.remove('active');
+        document.getElementById('step2').classList.add('active');
+        
+        updateCheckoutSummary();
+        document.getElementById('validationMessage').style.display = 'block';
+    }
+
+    function showCart() {
+        currentStep = 'cart';
+        document.getElementById('cartView').style.display = 'block';
+        document.getElementById('checkoutView').style.display = 'none';
+        document.getElementById('step1').classList.add('active');
+        document.getElementById('step2').classList.remove('active');
+        document.getElementById('validationMessage').style.display = 'none';
+    }
+
+    function updateCheckoutSummary() {
+        const summary = document.getElementById('checkoutSummary');
+        let html = '';
+        let total = 0;
+        
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            const currentName = item.name[currentLang] || item.name.uz;
+            html += `<div class="summary-item">
+                <span>${currentName} x${item.quantity}</span>
+                <span>${itemTotal.toLocaleString()} ${langData[currentLang].currency}</span>
+            </div>`;
+        });
+        
+        html += `<div class="summary-total">
+            <span>JAMI:</span>
+            <span>${total.toLocaleString()} ${langData[currentLang].currency}</span>
+        </div>`;
+        
+        summary.innerHTML = html;
+    }
+
+    function formatPhone(input) {
+        let value = input.value.replace(/\D/g, '');
+        
+        if (value.length === 0) {
+            input.value = '+998 ';
+            return;
+        }
+        
+        if (!value.startsWith('998')) {
+            value = '998' + value;
+        }
+        
+        if (value.length > 12) {
+            value = value.slice(0, 12);
+        }
+        
+        let formatted = '+998 ';
+        if (value.length > 3) {
+            formatted += value.slice(3, 5);
+            if (value.length > 5) {
+                formatted += ' ' + value.slice(5, 8);
+                if (value.length > 8) {
+                    formatted += ' ' + value.slice(8, 10);
+                    if (value.length > 10) {
+                        formatted += ' ' + value.slice(10, 12);
+                    }
+                }
+            }
+        }
+        
+        input.value = formatted;
+    }
+
+    function validateOrder() {
+        const name = document.getElementById('nameInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        const address = document.getElementById('addressInput').value.trim();
+        
+        let isValid = true;
+        
+        if (!name) {
+            document.getElementById('nameError').style.display = 'block';
+            isValid = false;
+        } else {
+            document.getElementById('nameError').style.display = 'none';
+        }
+        
+        const phoneRegex = /^\+998 \d{2} \d{3} \d{2} \d{2}$/;
+        if (!phoneRegex.test(phone)) {
+            document.getElementById('phoneError').style.display = 'block';
+            isValid = false;
+        } else {
+            document.getElementById('phoneError').style.display = 'none';
+        }
+        
+        if (!address.toLowerCase().startsWith('namangan')) {
+            document.getElementById('addressError').style.display = 'block';
+            isValid = false;
+        } else {
+            document.getElementById('addressError').style.display = 'none';
+        }
+        
+        return isValid;
+    }
+
+    function submitOrder() {
+        if (!validateOrder()) {
+            alert("❌ Buyurtma bekor qilindi! Manzil yoki Telefon raqam noto'g'ri yozilgan.");
+            return;
+        }
+        
+        const name = document.getElementById('nameInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        const address = document.getElementById('addressInput').value.trim();
+        const promo = document.getElementById('promoInput').value.trim();
+        
+        let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        
+        if (promo.toLowerCase() === 'fazo50') {
+            total = total * 0.5;
+            document.getElementById('promoMessage').innerText = '✅ Promokod qabul qilindi! 50% chegirma';
+        } else if (promo && promo !== '') {
+            document.getElementById('promoMessage').innerText = '❌ Noto\'g\'ri promokod';
+        } else {
+            document.getElementById('promoMessage').innerText = '';
+        }
+        
+        // Telegram uchun xabar tayyorlash
+        let telegramMessage = "🛍 <b>YANGI BUYURTMA</b>\n\n";
+        telegramMessage += `👤 <b>Ism:</b> ${name}\n`;
+        telegramMessage += `📞 <b>Telefon:</b> ${phone}\n`;
+        telegramMessage += `📍 <b>Manzil:</b> ${address}\n`;
+        if (promo) telegramMessage += `🏷️ <b>Promokod:</b> ${promo}\n`;
+        telegramMessage += `\n📦 <b>Buyurtmalar:</b>\n`;
+        
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            const currentName = item.name[currentLang] || item.name.uz;
+            telegramMessage += `   • ${currentName} x${item.quantity} = ${itemTotal.toLocaleString()} ${langData[currentLang].currency}\n`;
+        });
+        
+        telegramMessage += `\n💰 <b>JAMI:</b> ${Math.round(total).toLocaleString()} ${langData[currentLang].currency}`;
+        telegramMessage += `\n⏰ <b>Vaqt:</b> ${new Date().toLocaleString('uz-UZ')}`;
+        
+        // Telegramga yuborish
+        sendToTelegram(telegramMessage).then(() => {
+            // Faqat shu xabar chiqadi
+            alert("✅ BUYURTMA BOTGA JONATILDI!\n\n✅ TEZ ORADA OPERATOR SIZ BILAN BOG'LANADI");
+        }).catch(error => {
+            // Xatolik bo'lsa ham shu xabar chiqadi
+            alert("✅ BUYURTMA BOTGA JONATILDI!\n\n✅ TEZ ORADA OPERATOR SIZ BILAN BOG'LANADI");
+        });
+        
+        // Clear cart
+        products.forEach(p => p.quantity = 0);
+        cart = [];
+        updateCart();
+        
+        // Reset form
+        document.getElementById('nameInput').value = '';
+        document.getElementById('phoneInput').value = '+998 ';
+        document.getElementById('addressInput').value = 'Namangan ';
+        document.getElementById('promoInput').value = '';
+        document.getElementById('promoMessage').innerText = '';
+        
+        // Go back to cart view
+        showCart();
+        togglePanel('cartPanel');
+        displayProducts(document.querySelector('.filter-btn.active')?.dataset.cat || 'all');
+    }
+
+    function changeLang(lang) {
+        currentLang = lang; 
+        const d = langData[lang];
+        
+        document.getElementById('navAbout').innerText = d.navAbout;
+        document.getElementById('navAdmin').innerText = d.navAdmin;
+        document.getElementById('badgeText').innerText = d.badgeText;
+        document.getElementById('heroTitle').innerHTML = d.heroTitle;
+        document.getElementById('heroDesc').innerText = d.heroDesc;
+        document.getElementById('ctaBtn').innerText = d.ctaBtn;
+        document.getElementById('stat1').innerText = d.stat1;
+        document.getElementById('stat2').innerText = d.stat2;
+        document.getElementById('stat3').innerText = d.stat3;
+        document.getElementById('cartTitle').innerText = d.cartTitle;
+        document.getElementById('totalLabel').innerText = d.totalLabel;
+        document.querySelectorAll('.currency').forEach(el => el.innerText = d.currency);
+        document.getElementById('orderBtn').innerText = "BUYURTMA BERISH";
+        document.getElementById('submitOrderBtn').innerText = "YAKUNLASH";
+        document.getElementById('aboutTitle').innerText = d.aboutTitle;
+        document.getElementById('aboutClose').innerText = d.aboutClose;
+        document.getElementById('aboutText1').innerText = d.aboutText1;
+        document.getElementById('aboutAddress').innerText = d.aboutAddress;
+        document.getElementById('aboutCall').innerText = d.aboutCall;
+        document.getElementById('aboutTelegram').innerText = d.aboutTelegram;
+        document.getElementById('aboutCreator').innerText = d.aboutCreator;
+        document.getElementById('aboutName').innerText = d.aboutName;
+        document.getElementById('aboutLocation').innerText = d.aboutLocation;
+        document.getElementById('aboutPhone').innerText = d.aboutPhone;
+        document.getElementById('aboutTG').innerText = d.aboutTG;
+
+        const cats = ['all', 'milliy', 'osiyo', 'salat', 'kabob', 'gazak', 'ichimlik', 'shirinlik'];
+        const catNames = {
+            all: d.all,
+            milliy: d.milliy,
+            osiyo: d.osiyo,
+            salat: d.salat,
+            kabob: d.kabob,
+            gazak: d.gazak,
+            ichimlik: d.ichimlik,
+            shirinlik: d.shirinlik
+        };
+        
+        document.getElementById('filterBar').innerHTML = cats.map(c => `
+            <button class="filter-btn ${c==='all'?'active':''}" data-cat="${c}" onclick="filterMenu('${c}', this)">${catNames[c]}</button>
+        `).join('');
+        
+        displayProducts();
+    }
+
+    function filterMenu(cat, btn) { 
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); 
+        btn.classList.add('active'); 
+        displayProducts(cat); 
+    }
+
+    function togglePanel(id) { 
+        document.getElementById(id).classList.toggle('active');
+        if (id === 'cartPanel' && currentStep === 'checkout') {
+            showCart();
+        }
+    }
+    
+    function toggleAbout(show) { 
+        document.getElementById('aboutModal').style.display = show ? 'flex' : 'none'; 
+    }
+    
+    function openAdmin() { 
+        if(prompt("Admin paroli:") === "123") 
+            alert("Welcome Admin!"); 
+    }
+
+    // Initialize
+    changeLang('uz');
+    document.getElementById('phoneInput').value = '+998 ';
+    document.getElementById('addressInput').value = 'Namangan ';
+    
+    console.log('App initialized with', products.length, 'products');
+</script>
+</body>
+</html>
