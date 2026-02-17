@@ -5,6 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fazo foods | 180+ taomlar</title>
+
+    <!-- KODNI CTRL+U BILAN KO'RISHNI BLOKLASH -->
+    <script>
+        // Disable right click
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        // Disable F12, Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+S
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+                (e.ctrlKey && e.key === 'U') ||
+                (e.ctrlKey && e.key === 's') ||
+                (e.ctrlKey && e.key === 'S')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Anti-view source - console warning
+        console.log('%c🚫 Source code viewing is disabled!', 'color: red; font-size: 20px; font-weight: bold;');
+    </script>
+
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -1702,10 +1727,47 @@
             color: var(--primary);
             font-weight: 700;
         }
+
+        /* Barcha rasmlarni almashtirish tugmasi stili */
+        .mass-image-btn {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mass-image-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .mass-image-btn i {
+            font-size: 18px;
+        }
+
+        /* Anti-view source styles */
+        .protected-content {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
     </style>
 </head>
 
-<body>
+<body class="protected-content">
 
     <!-- Profile overlay - yoniga bosish uchun -->
     <div id="profileOverlay" onclick="closeProfileDropdown()"></div>
@@ -1744,8 +1806,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Qolgan kod o'zgarmaydi - Admin Panel, Hero, Menu, Cart, About, Footer -->
 
     <!-- Admin Panel -->
     <div id="adminPanel" class="admin-panel">
@@ -1789,7 +1849,7 @@
                 <div id="recentOrdersList"></div>
             </div>
 
-            <!-- USERS -->
+            <!-- USERS - OLDINDAN YOZILGAN USERLAR YO'Q -->
             <div id="users" class="admin-content">
                 <h3 class="admin-section-title">👥 Foydalanuvchilar boshqaruvi</h3>
 
@@ -1853,9 +1913,15 @@
                 </table>
             </div>
 
-            <!-- PRODUCTS -->
+            <!-- PRODUCTS - BARCHA RASMLARNI ALMASHTIRISH TUGMASI -->
             <div id="products" class="admin-content">
                 <h3 class="admin-section-title">🍽️ Mahsulotlarni tahrirlash</h3>
+
+                <!-- YANGI TUGMA - Barcha rasmlarni bir vaqtda almashtirish -->
+                <button class="mass-image-btn" onclick="changeAllProductImages()">
+                    <i class="fas fa-images"></i> Barcha mahsulot rasmlarini almashtirish
+                </button>
+
                 <div class="admin-search-container">
                     <input type="text" class="admin-search-input" id="adminSearchInput"
                         placeholder="Mahsulot qidirish..." onkeyup="filterAdminProducts()">
@@ -2043,7 +2109,6 @@
     </footer>
 
     <script>
-        // JavaScript kodi to'liq o'zgarmaydi - avvalgidek qoladi
         const langData = {
             uz: { navAbout: "Biz haqimizda", navAdmin: "Admin", badgeText: "180+ xil taomlar", heroTitle: "Eng katta <br><span>taomlar tanlovi</span>", heroDesc: "180 dan ortiq turli xil milliy va xorijiy taomlar. Eng sifatli mahsulotlar, eng tez yetkazib berish.", ctaBtn: "MENYUNI KO'RISH", stat1: "Taomlar", stat2: "Mijozlar", stat3: "Reyting", all: "BARCHASI", milliy: "O'ZBEK", osiyo: "OSIYO", salat: "SALATLAR", kabob: "KABOBLAR", gazak: "GAZAKLAR", ichimlik: "ICHIMLIKLAR", shirinlik: "SHIRINLIKLAR", cartTitle: "Savatcha", totalLabel: "JAMI:", currency: "so'm", aboutTitle: "Biz haqimizda", aboutClose: "YOPISH", aboutText1: "Fazo foods — 2025", aboutLocation: "Namangan, O'zbekiston", aboutPhone: "+998 90 260 88 88", aboutTG: "@ItsUzb", aboutName: "Odilov Abdulquddus (13 yosh)", searchPlaceholder: "Qidiruv...", searchResults: "ta mahsulot topildi", noResults: "Hech narsa topilmadi" },
             ru: { navAbout: "О нас", navAdmin: "Админ", badgeText: "180+ блюд", heroTitle: "Большой <br><span>выбор блюд</span>", heroDesc: "Более 180 различных блюд. Качественные продукты, быстрая доставка.", ctaBtn: "МЕНЮ", stat1: "Блюда", stat2: "Клиенты", stat3: "Рейтинг", all: "ВСЕ", milliy: "УЗБЕКСКИЕ", osiyo: "АЗИАТСКИЕ", salat: "САЛАТЫ", kabob: "ШАШЛЫКИ", gazak: "ЗАКУСКИ", ichimlik: "НАПИТКИ", shirinlik: "ДЕСЕРТЫ", cartTitle: "Корзина", totalLabel: "ИТОГО:", currency: "сум", aboutTitle: "О нас", aboutClose: "ЗАКРЫТЬ", aboutText1: "Fazo foods — 2025", aboutLocation: "Наманган, Узбекистан", aboutPhone: "+998 90 260 88 88", aboutTG: "@ItsUzb", aboutName: "Одилов Абдулкуддус (13 лет)", searchPlaceholder: "Поиск...", searchResults: "товаров найдено", noResults: "Ничего не найдено" },
@@ -2065,21 +2130,87 @@
         const dessertNames = ["Medovik", "Napoleon", "Tiramisu", "Cheesecake", "Chak-chak", "Halva", "Paxlava", "Shokoladli tort", "Muzqaymoq", "Fruit Salat", "Blinchik", "Puding", "Sufle", "Jele", "Pechenye", "Ekler", "Profiterol", "Makaron", "Keks", "Rul", "Donat", "Kruassan", "Briosh", "Panakota", "Krem-brule", "Shokolad", "Konfet", "Karamel", "Zefir", "Pastila"];
         for (let i = 0; i < 30; i++) products.push({ id: `shir${i}`, cat: 'shirinlik', name: { uz: dessertNames[i], ru: dessertNames[i], en: dessertNames[i] }, price: 15000 + (i * 1000), weight: "200g", img: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400", quantity: 0 });
 
-        // STATE
+        // STATE - USERLAR BO'SH (OLDINDAN YOZILGAN USERLAR YO'Q)
         let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
-        let users = JSON.parse(localStorage.getItem('users')) || [];
-        if (users.length === 0) {
-            users = [
-                { id: 1, name: "Ali", surname: "Aliyev", phone: "+998 90 123 45 67", password: "123456", avatar: "https://via.placeholder.com/60", blocked: false, maxOrder: 100, isAdmin: false, registered: new Date().toISOString() },
-                { id: 2, name: "Vali", surname: "Valiyev", phone: "+998 91 234 56 78", password: "123456", avatar: "https://via.placeholder.com/60", blocked: false, maxOrder: 50, isAdmin: false, registered: new Date().toISOString() }
-            ];
-            localStorage.setItem('users', JSON.stringify(users));
-        }
+        let users = JSON.parse(localStorage.getItem('users')) || []; // BO'SH ARRAY
+
+        // Agar users bo'sh bo'lsa, hech narsa qo'shmaymiz
+        // users = []; - Bu holatda hech qanday default user yo'q
+
         let currentLang = 'uz', cart = [], currentStep = 'cart';
         let orders = JSON.parse(localStorage.getItem('orders')) || [];
         let isAdminLoggedIn = false, currentCategory = 'all', searchQuery = '', adminSearchQuery = '';
         const TELEGRAM_TOKEN = "8227938686:AAGYtIXGoLT2N3mOUdd_lsy-sF4lZnNSD44";
         const TELEGRAM_CHAT_ID = "7000999171";
+
+        // ========================
+        // BARCHA RASMLARNI ALMASHTIRISH FUNKSIYASI
+        // ========================
+        function changeAllProductImages() {
+            const newUrl = prompt("Yangi rasm URL manzilini kiriting (barcha mahsulotlar uchun):",
+                "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&w=400");
+
+            if (newUrl && newUrl.trim() !== "") {
+                // Barcha mahsulotlarning rasmini almashtirish
+                products.forEach(product => {
+                    product.img = newUrl.trim();
+                });
+
+                // Asosiy menyuni yangilash
+                displayProducts(currentCategory);
+
+                // Agar admin panelida products tab ochiq bo'lsa, uni ham yangilash
+                if (document.getElementById('products').classList.contains('active')) {
+                    displayProductsForEdit();
+                }
+
+                alert(`✅ Barcha ${products.length} ta mahsulot rasmi muvaffaqiyatli almashtirildi!`);
+            }
+        }
+
+        // ========================
+        // YAXSHILANGAN LOGOUT FUNKSIYASI
+        // ========================
+        function logoutUser() {
+            // 1. Current userni null qilish
+            currentUser = null;
+
+            // 2. localStorage dan o'chirish
+            localStorage.removeItem('currentUser');
+
+            // 3. Barcha mahsulotlar quantity ni 0 ga tushurish
+            products.forEach(p => p.quantity = 0);
+
+            // 4. Savatchani tozalash
+            cart = [];
+
+            // 5. Cart ni yangilash
+            updateCart();
+
+            // 6. Profil dropdown ni yangilash
+            updateProfileDropdown();
+
+            // 7. Mahsulotlarni qayta chiqarish
+            displayProducts(currentCategory);
+
+            // 8. Profil dropdown ni yopish
+            closeProfileDropdown();
+
+            // 9. Login required xabarni yangilash
+            updateLoginRequiredMessage();
+
+            // 10. Checkout formani tozalash
+            document.getElementById('nameInput').value = '';
+            document.getElementById('surnameInput').value = '';
+            document.getElementById('phoneInput').value = '+998 ';
+
+            // 11. Agar cart panel ochiq bo'lsa, uni yopish
+            if (document.getElementById('cartPanel').classList.contains('active')) {
+                togglePanel('cartPanel');
+            }
+
+            alert("✅ Tizimdan muvaffaqiyatli chiqdingiz!");
+        }
 
         // ========================
         // PROFILE DROPDOWN
@@ -2233,18 +2364,6 @@
                 profileIcon.innerHTML = '<i class="fas fa-user"></i>';
             }
             updateLoginRequiredMessage();
-        }
-
-        function logoutUser() {
-            currentUser = null;
-            localStorage.removeItem('currentUser');
-            products.forEach(p => p.quantity = 0);
-            cart = [];
-            updateCart();
-            updateProfileDropdown();
-            displayProducts(currentCategory);
-            closeProfileDropdown();
-            alert("✅ Tizimdan chiqdingiz!");
         }
 
         function changeProfilePicture() {
@@ -2429,25 +2548,29 @@
             const adminCount = getAdminCount();
             document.getElementById('adminCountDisplay').innerText = adminCount;
             let html = '';
-            users.forEach(u => {
-                html += `<tr class="${u.blocked ? 'blocked' : ''}">
-            <td>${u.name}</td>
-            <td>${u.surname}</td>
-            <td style="font-size:12px;">${u.phone}</td>
-            <td>
-                ${u.blocked ? '<span class="badge badge-danger">Bloklangan</span>' : u.isAdmin ? '<span class="badge badge-admin">⚜️ Admin</span>' : '<span class="badge badge-success">Faol</span>'}
-            </td>
-            <td>
-                <input type="number" class="max-order-input" id="max-${u.id}" value="${u.maxOrder || 100}" min="1" max="1000">
-                <button class="update-max-btn" onclick="updateMaxOrder(${u.id})">✓</button>
-            </td>
-            <td style="white-space:nowrap;">
-                ${u.blocked ? `<button class="unblock-btn" onclick="toggleUserBlock(${u.id})">Ochish</button>` : `<button class="block-btn" onclick="toggleUserBlock(${u.id})">Bloklash</button>`}
-                ${u.isAdmin ? `<button class="remove-admin-btn" onclick="toggleAdminRole(${u.id})">Admin olish</button>` : `<button class="make-admin-btn" onclick="toggleAdminRole(${u.id})">Admin qilish</button>`}
-                <button class="delete-user-btn" onclick="deleteUser(${u.id})">🗑</button>
-            </td>
-        </tr>`;
-            });
+            if (users.length === 0) {
+                html = `<tr><td colspan="6" style="text-align: center; padding: 30px; color: var(--text-muted);">👥 Hozircha hech qanday foydalanuvchi yo'q</td></tr>`;
+            } else {
+                users.forEach(u => {
+                    html += `<tr class="${u.blocked ? 'blocked' : ''}">
+                <td>${u.name}</td>
+                <td>${u.surname}</td>
+                <td style="font-size:12px;">${u.phone}</td>
+                <td>
+                    ${u.blocked ? '<span class="badge badge-danger">Bloklangan</span>' : u.isAdmin ? '<span class="badge badge-admin">⚜️ Admin</span>' : '<span class="badge badge-success">Faol</span>'}
+                </td>
+                <td>
+                    <input type="number" class="max-order-input" id="max-${u.id}" value="${u.maxOrder || 100}" min="1" max="1000">
+                    <button class="update-max-btn" onclick="updateMaxOrder(${u.id})">✓</button>
+                </td>
+                <td style="white-space:nowrap;">
+                    ${u.blocked ? `<button class="unblock-btn" onclick="toggleUserBlock(${u.id})">Ochish</button>` : `<button class="block-btn" onclick="toggleUserBlock(${u.id})">Bloklash</button>`}
+                    ${u.isAdmin ? `<button class="remove-admin-btn" onclick="toggleAdminRole(${u.id})">Admin olish</button>` : `<button class="make-admin-btn" onclick="toggleAdminRole(${u.id})">Admin qilish</button>`}
+                    <button class="delete-user-btn" onclick="deleteUser(${u.id})">🗑</button>
+                </td>
+            </tr>`;
+                });
+            }
             list.innerHTML = html;
         }
 
@@ -2839,8 +2962,6 @@
             if (confirm("Rostdan ham bu buyurtmani o'chirmoqchimisiz?")) {
                 orders = orders.filter(o => o.id !== orderId);
                 localStorage.setItem('orders', JSON.stringify(orders));
-
-                // Yangilash
                 if (document.getElementById('orders').classList.contains('active')) {
                     displayOrders();
                 }
@@ -2968,7 +3089,7 @@
         updateProfileDropdown();
         updateCheckoutForm();
         updateLoginRequiredMessage();
-        document.getElementById('addressInput').value = '';
+        document.getElementById('addressInput').value = ''; // Manzil bo'sh
     </script>
 </body>
 
