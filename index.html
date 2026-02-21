@@ -3,12 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <link rel="icon" type="image/svg+xml"
         href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQlLpNgBMCIRTc4KOVPonowBdYbzEbQ2vDvw&s">
     <title>Fazo foods | 180+ taomlar</title>
 
-    <!-- KODNI CTRL+U BILAN KO'RISHNI BLOKLASH -->
     <script>
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
@@ -190,7 +189,7 @@
         }
 
         .logo-main {
-            font-size: 20px;
+            font-size: clamp(16px, 4vw, 24px);
             font-weight: 900;
             color: var(--primary);
             font-family: 'Playfair Display', serif;
@@ -204,7 +203,7 @@
         }
 
         .logo-sub {
-            font-size: 9px;
+            font-size: clamp(7px, 2vw, 10px);
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -214,7 +213,7 @@
 
         .nav-right {
             display: flex;
-            gap: 10px;
+            gap: clamp(5px, 2vw, 15px);
             align-items: center;
             flex-wrap: nowrap;
             flex-shrink: 0;
@@ -257,7 +256,7 @@
             position: fixed;
             top: 0;
             right: -100%;
-            width: 280px;
+            width: min(280px, 80vw);
             height: 100vh;
             background: var(--admin-bg);
             z-index: 1002;
@@ -318,8 +317,8 @@
         }
 
         .profile-icon {
-            width: 42px;
-            height: 42px;
+            width: clamp(35px, 8vw, 50px);
+            height: clamp(35px, 8vw, 50px);
             border-radius: 50%;
             background: var(--primary);
             display: flex;
@@ -338,7 +337,7 @@
         }
 
         .profile-icon i {
-            font-size: 20px;
+            font-size: clamp(16px, 4vw, 24px);
             color: #0f0b07;
         }
 
@@ -351,7 +350,7 @@
             position: absolute;
             right: 0;
             top: 50px;
-            width: 300px;
+            width: min(300px, 90vw);
             background: var(--admin-bg);
             border: 1px solid var(--primary);
             border-radius: 12px;
@@ -419,6 +418,7 @@
         .profile-info h4 {
             color: var(--primary);
             margin-bottom: 5px;
+            font-size: clamp(14px, 3vw, 16px);
         }
 
         .profile-info p {
@@ -533,8 +533,8 @@
             border-radius: 8px;
             padding: 10px 35px 10px 15px;
             color: var(--text-light);
-            font-size: 14px;
-            width: 200px;
+            font-size: clamp(12px, 3vw, 14px);
+            width: clamp(120px, 30vw, 250px);
             transition: 0.3s;
         }
 
@@ -542,7 +542,7 @@
             outline: none;
             border-color: var(--primary);
             background: rgba(255, 255, 255, 0.05);
-            width: 220px;
+            width: clamp(140px, 35vw, 300px);
         }
 
         .search-input::placeholder {
@@ -557,7 +557,7 @@
             transform: translateY(-50%);
             color: var(--primary);
             cursor: pointer;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
         }
 
         .clear-search {
@@ -577,9 +577,9 @@
 
         .nav-btn {
             background: rgba(255, 255, 255, 0.03);
-            padding: 10px 15px;
+            padding: clamp(8px, 2vw, 12px) clamp(12px, 3vw, 22px);
             border-radius: 8px;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
             cursor: pointer;
             color: var(--text-light);
             border: 1px solid rgba(245, 179, 66, 0.2);
@@ -598,8 +598,8 @@
 
         .cart-icon-btn {
             background: var(--primary);
-            width: 42px;
-            height: 42px;
+            width: clamp(38px, 8vw, 50px);
+            height: clamp(38px, 8vw, 50px);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -608,7 +608,7 @@
             position: relative;
             box-shadow: 0 5px 20px rgba(245, 179, 66, 0.4);
             transition: 0.3s;
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 20px);
         }
 
         .cart-icon-btn:hover {
@@ -635,13 +635,12 @@
             position: fixed;
             right: -1000px;
             top: 0;
-            width: 1000px;
-            max-width: 95vw;
+            width: min(1000px, 95vw);
             height: 100vh;
             background: var(--admin-bg);
             z-index: 2000;
             transition: 0.4s;
-            padding: 30px;
+            padding: clamp(15px, 4vw, 30px);
             box-shadow: -10px 0 50px rgba(0, 0, 0, 0.8);
             overflow-y: auto;
             border-left: 2px solid var(--primary);
@@ -661,7 +660,7 @@
         }
 
         .admin-title {
-            font-size: 28px;
+            font-size: clamp(24px, 6vw, 32px);
             color: var(--primary);
             display: flex;
             align-items: center;
@@ -669,7 +668,7 @@
         }
 
         .admin-close {
-            font-size: 28px;
+            font-size: clamp(24px, 6vw, 30px);
             cursor: pointer;
             color: var(--text-muted);
             transition: 0.3s;
@@ -682,7 +681,7 @@
 
         .admin-login-box {
             text-align: center;
-            padding: 50px;
+            padding: clamp(30px, 8vw, 50px);
             background: rgba(0, 0, 0, 0.2);
             border-radius: 20px;
             margin-top: 50px;
@@ -691,6 +690,7 @@
         .admin-login-box h2 {
             color: var(--primary);
             margin-bottom: 30px;
+            font-size: clamp(20px, 5vw, 28px);
         }
 
         .admin-login-box input {
@@ -701,7 +701,7 @@
             border: 1px solid rgba(245, 179, 66, 0.2);
             border-radius: 12px;
             color: var(--text-light);
-            font-size: 16px;
+            font-size: clamp(14px, 3vw, 16px);
             margin-bottom: 20px;
         }
 
@@ -718,7 +718,7 @@
             border-radius: 12px;
             font-weight: 800;
             cursor: pointer;
-            font-size: 16px;
+            font-size: clamp(14px, 3vw, 16px);
         }
 
         .admin-tabs {
@@ -729,14 +729,14 @@
         }
 
         .admin-tab {
-            padding: 12px 20px;
+            padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 30px);
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(245, 179, 66, 0.2);
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
             transition: 0.3s;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
         }
 
         .admin-tab:hover,
@@ -755,7 +755,7 @@
         }
 
         .admin-section-title {
-            font-size: 24px;
+            font-size: clamp(20px, 5vw, 24px);
             margin-bottom: 20px;
             color: var(--primary);
             position: relative;
@@ -830,6 +830,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            font-size: clamp(12px, 3vw, 14px);
         }
 
         .users-table th {
@@ -845,7 +846,6 @@
             padding: 10px 12px;
             border-bottom: 1px solid rgba(245, 179, 66, 0.1);
             vertical-align: middle;
-            font-size: 14px;
         }
 
         .users-table tr:hover {
@@ -941,6 +941,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            font-size: clamp(11px, 3vw, 14px);
         }
 
         .orders-table th {
@@ -950,13 +951,11 @@
             color: var(--primary);
             font-weight: 600;
             border-bottom: 2px solid var(--primary);
-            font-size: 14px;
         }
 
         .orders-table td {
             padding: 12px;
             border-bottom: 1px solid rgba(245, 179, 66, 0.1);
-            font-size: 13px;
         }
 
         .orders-table tr:hover {
@@ -987,7 +986,7 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -1030,7 +1029,7 @@
             border: 1px solid rgba(245, 179, 66, 0.2);
             border-radius: 6px;
             color: var(--text-light);
-            font-size: 13px;
+            font-size: clamp(12px, 3vw, 13px);
         }
 
         .product-edit-card input:focus {
@@ -1068,7 +1067,7 @@
             font-weight: 600;
             width: 100%;
             transition: 0.3s;
-            font-size: 13px;
+            font-size: clamp(12px, 3vw, 13px);
         }
 
         .save-btn:hover {
@@ -1085,7 +1084,7 @@
             font-weight: 600;
             width: 100%;
             margin-top: 8px;
-            font-size: 13px;
+            font-size: clamp(12px, 3vw, 13px);
         }
 
         .add-user-form {
@@ -1099,12 +1098,12 @@
         .add-user-form h4 {
             color: var(--primary);
             margin-bottom: 15px;
-            font-size: 16px;
+            font-size: clamp(14px, 4vw, 16px);
         }
 
         .add-user-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
             gap: 10px;
             margin-bottom: 12px;
         }
@@ -1115,7 +1114,7 @@
             border: 1px solid rgba(245, 179, 66, 0.2);
             border-radius: 6px;
             color: var(--text-light);
-            font-size: 13px;
+            font-size: clamp(12px, 3vw, 13px);
         }
 
         .add-user-grid input:focus {
@@ -1131,7 +1130,7 @@
             border-radius: 6px;
             font-weight: 700;
             cursor: pointer;
-            font-size: 14px;
+            font-size: clamp(12px, 4vw, 14px);
             transition: 0.2s;
         }
 
@@ -1142,20 +1141,22 @@
         .hero {
             display: flex;
             align-items: center;
-            padding: 50px 5% 40px;
+            padding: clamp(30px, 8vw, 60px) 5% clamp(30px, 6vw, 40px);
             min-height: 80vh;
-            gap: 40px;
+            gap: clamp(20px, 5vw, 50px);
+            flex-wrap: wrap;
         }
 
         .hero-left {
             flex: 1.2;
+            min-width: min(400px, 100%);
         }
 
         .top-badge {
             background: rgba(245, 179, 66, 0.1);
-            padding: 8px 18px;
+            padding: clamp(6px, 2vw, 10px) clamp(12px, 4vw, 22px);
             border-radius: 40px;
-            font-size: 13px;
+            font-size: clamp(12px, 3vw, 14px);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -1166,7 +1167,7 @@
         }
 
         .hero-left h1 {
-            font-size: 60px;
+            font-size: clamp(32px, 8vw, 72px);
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 20px;
@@ -1186,20 +1187,20 @@
 
         .hero-left p {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: clamp(14px, 3.5vw, 18px);
             margin-bottom: 30px;
             line-height: 1.8;
-            max-width: 500px;
+            max-width: 550px;
             font-weight: 400;
         }
 
         .cta-btn {
             background: linear-gradient(135deg, var(--primary), #ffd966);
             color: #0f0b07;
-            padding: 15px 35px;
+            padding: clamp(12px, 3vw, 18px) clamp(25px, 6vw, 45px);
             border-radius: 10px;
             font-weight: 800;
-            font-size: 15px;
+            font-size: clamp(13px, 3.5vw, 16px);
             border: none;
             cursor: pointer;
             box-shadow: 0 10px 30px rgba(245, 179, 66, 0.3);
@@ -1220,12 +1221,13 @@
 
         .stats-box {
             display: flex;
-            gap: 40px;
+            gap: clamp(20px, 6vw, 60px);
             margin-top: 40px;
+            flex-wrap: wrap;
         }
 
         .stat-item h2 {
-            font-size: 36px;
+            font-size: clamp(28px, 7vw, 44px);
             font-weight: 900;
             color: var(--primary);
             font-family: 'Playfair Display', serif;
@@ -1233,7 +1235,7 @@
         }
 
         .stat-item p {
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 15px);
             color: var(--text-muted);
             margin-top: 5px;
             font-weight: 500;
@@ -1244,11 +1246,12 @@
             flex: 1;
             display: flex;
             justify-content: flex-end;
+            min-width: min(300px, 100%);
         }
 
         .circle-img {
-            width: 450px;
-            height: 450px;
+            width: min(450px, 80vw);
+            height: min(450px, 80vw);
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
@@ -1262,7 +1265,7 @@
         }
 
         .menu-section {
-            padding: 60px 5% 80px;
+            padding: clamp(40px, 8vw, 80px) 5% clamp(50px, 10vw, 100px);
             background: linear-gradient(135deg, #0f0b07 0%, #1a130c 100%);
         }
 
@@ -1275,7 +1278,7 @@
         }
 
         .filter-btn {
-            padding: 12px 25px;
+            padding: clamp(8px, 2vw, 14px) clamp(15px, 4vw, 30px);
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(245, 179, 66, 0.2);
@@ -1283,7 +1286,7 @@
             cursor: pointer;
             font-weight: 600;
             transition: 0.3s;
-            font-size: 13px;
+            font-size: clamp(11px, 3vw, 14px);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -1303,7 +1306,7 @@
             text-align: center;
             margin-bottom: 20px;
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
         }
 
         .search-stats span {
@@ -1328,13 +1331,13 @@
             margin-bottom: 20px;
             padding-bottom: 8px;
             border-bottom: 2px solid var(--primary);
-            font-size: 24px;
+            font-size: clamp(20px, 5vw, 28px);
             color: var(--primary);
             font-family: 'Playfair Display', serif;
         }
 
         .category-title i {
-            font-size: 26px;
+            font-size: clamp(22px, 5vw, 32px);
         }
 
         /* HORIZONTAL SCROLL CATEGORY PRODUCTS */
@@ -1370,9 +1373,9 @@
 
         .category-products .card {
             flex: 0 0 auto;
-            width: 280px;
+            width: min(280px, 70vw);
             background: var(--card-bg);
-            padding: 20px;
+            padding: clamp(12px, 3vw, 20px);
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.03);
             transition: 0.3s;
@@ -1395,7 +1398,7 @@
 
         .card img {
             width: 100%;
-            height: 180px;
+            height: clamp(140px, 30vw, 200px);
             border-radius: 12px;
             object-fit: cover;
             margin-bottom: 12px;
@@ -1407,7 +1410,7 @@
         }
 
         .card h3 {
-            font-size: 18px;
+            font-size: clamp(14px, 3.5vw, 18px);
             margin-bottom: 5px;
             color: var(--text-light);
             font-weight: 700;
@@ -1417,7 +1420,7 @@
         }
 
         .product-weight {
-            font-size: 12px;
+            font-size: clamp(10px, 2.5vw, 12px);
             color: var(--primary);
             margin-bottom: 8px;
             font-weight: 500;
@@ -1428,7 +1431,7 @@
         }
 
         .price {
-            font-size: 18px;
+            font-size: clamp(14px, 3.5vw, 18px);
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 10px;
@@ -1440,8 +1443,8 @@
             right: 10px;
             background: var(--primary);
             color: #0f0b07;
-            width: 32px;
-            height: 32px;
+            width: clamp(28px, 6vw, 36px);
+            height: clamp(28px, 6vw, 36px);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1450,7 +1453,7 @@
             opacity: 0;
             transition: 0.3s;
             border: none;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 16px);
         }
 
         .card:hover .goto-btn {
@@ -1475,12 +1478,12 @@
 
         .qty-btn {
             flex: 1;
-            padding: 6px;
+            padding: clamp(4px, 1.5vw, 8px);
             border-radius: 6px;
             border: 1px solid rgba(245, 179, 66, 0.2);
             background: transparent;
             color: var(--text-light);
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 16px);
             font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
@@ -1511,7 +1514,7 @@
             font-weight: 800;
             min-width: 30px;
             text-align: center;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 16px);
             color: var(--primary);
         }
 
@@ -1519,13 +1522,12 @@
             position: fixed;
             right: -450px;
             top: 0;
-            width: 400px;
-            max-width: 90vw;
+            width: min(400px, 90vw);
             height: 100vh;
             background: #1a130c;
             z-index: 2000;
             transition: 0.4s;
-            padding: 30px 20px;
+            padding: clamp(20px, 5vw, 30px) clamp(15px, 4vw, 20px);
             box-shadow: -10px 0 50px rgba(0, 0, 0, 0.8);
             display: flex;
             flex-direction: column;
@@ -1553,9 +1555,9 @@
 
         .about-box {
             background: #1a130c;
-            padding: 40px;
+            padding: clamp(25px, 6vw, 45px);
             border-radius: 20px;
-            max-width: 450px;
+            max-width: 500px;
             width: 90%;
             border: 1px solid var(--primary);
             text-align: center;
@@ -1586,9 +1588,9 @@
             background: #2c1e14;
             border: 1px solid rgba(245, 179, 66, 0.2);
             border-radius: 8px;
-            padding: 12px 15px;
+            padding: clamp(10px, 3vw, 14px) clamp(12px, 3vw, 18px);
             color: var(--text-light);
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
             transition: 0.3s;
         }
 
@@ -1627,7 +1629,7 @@
             border-top: 2px solid var(--primary);
             font-weight: 800;
             color: var(--primary);
-            font-size: 16px;
+            font-size: clamp(14px, 4vw, 18px);
         }
 
         .step-indicator {
@@ -1639,11 +1641,11 @@
         .step {
             flex: 1;
             text-align: center;
-            padding: 10px;
+            padding: clamp(8px, 2vw, 12px);
             border-radius: 8px;
             background: #2c1e14;
             color: var(--text-muted);
-            font-size: 12px;
+            font-size: clamp(11px, 2.5vw, 13px);
             font-weight: 600;
             border: 1px solid rgba(245, 179, 66, 0.2);
         }
@@ -1658,12 +1660,13 @@
             background: transparent;
             border: 1px solid rgba(245, 179, 66, 0.3);
             color: var(--text-light);
-            padding: 10px;
+            padding: clamp(8px, 2vw, 12px);
             border-radius: 8px;
             cursor: pointer;
             margin-bottom: 15px;
             transition: 0.3s;
             font-weight: 600;
+            font-size: clamp(12px, 3vw, 14px);
         }
 
         .back-btn:hover:not(:disabled) {
@@ -1687,7 +1690,7 @@
             color: var(--text-light);
             padding: 5px;
             margin: 0 5px;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
         }
 
         .quantity-input:focus {
@@ -1698,7 +1701,7 @@
         .footer {
             background: rgba(15, 11, 7, 0.95);
             border-top: 1px solid rgba(245, 179, 66, 0.2);
-            padding: 30px 5%;
+            padding: clamp(20px, 5vw, 30px) 5%;
             text-align: center;
             margin-top: auto;
         }
@@ -1711,7 +1714,7 @@
         }
 
         .footer-logo {
-            font-size: 22px;
+            font-size: clamp(18px, 5vw, 24px);
             font-weight: 800;
             color: var(--primary);
             font-family: 'Playfair Display', serif;
@@ -1719,20 +1722,22 @@
 
         .footer-text {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
             letter-spacing: 2px;
         }
 
         .footer-links {
             display: flex;
-            gap: 25px;
+            gap: clamp(15px, 5vw, 30px);
             margin-top: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .footer-link {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
             transition: 0.3s;
             display: flex;
             align-items: center;
@@ -1745,20 +1750,15 @@
 
         .footer-copyright {
             color: var(--text-muted);
-            font-size: 12px;
+            font-size: clamp(10px, 2.5vw, 12px);
             margin-top: 15px;
             opacity: 0.8;
         }
 
-        /* RESPONSIVE DESIGN */
+        /* RESPONSIVE BREAKPOINTS */
         @media (max-width: 1200px) {
             .hero-left h1 {
                 font-size: 50px;
-            }
-
-            .circle-img {
-                width: 400px;
-                height: 400px;
             }
         }
 
@@ -1766,11 +1766,6 @@
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding: 40px 5%;
-            }
-
-            .hero-left h1 {
-                font-size: 45px;
             }
 
             .hero-left p {
@@ -1781,52 +1776,10 @@
             .stats-box {
                 justify-content: center;
             }
-
-            .circle-img {
-                width: 350px;
-                height: 350px;
-            }
-
-            .search-input {
-                width: 160px;
-            }
-
-            .search-input:focus {
-                width: 180px;
-            }
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 10px 4%;
-            }
-
-            .logo-image {
-                width: 40px;
-                height: 40px;
-                font-size: 22px;
-            }
-
-            .logo-main {
-                font-size: 18px;
-            }
-
-            .logo-sub {
-                font-size: 8px;
-                letter-spacing: 1.5px;
-            }
-
-            .search-input {
-                width: 140px;
-                padding: 8px 30px 8px 12px;
-                font-size: 13px;
-            }
-
-            .search-input:focus {
-                width: 160px;
-            }
-
-            .nav-btn {
+            .nav-btn:not(.cart-icon-btn):not(.profile-icon):not(.hamburger-menu) {
                 display: none;
             }
 
@@ -1834,162 +1787,18 @@
                 display: flex;
             }
 
-            .profile-icon {
-                width: 38px;
-                height: 38px;
+            .nav-right {
+                gap: 5px;
             }
 
-            .cart-icon-btn {
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
-            }
-
-            .hero-left h1 {
-                font-size: 38px;
-            }
-
-            .circle-img {
-                width: 280px;
-                height: 280px;
-            }
-
-            .stats-box {
-                gap: 25px;
-            }
-
-            .stat-item h2 {
-                font-size: 30px;
-            }
-
-            .stat-item p {
-                font-size: 12px;
-            }
-
-            .filter-btn {
-                padding: 10px 18px;
-                font-size: 12px;
-            }
-
-            .category-title {
-                font-size: 22px;
-            }
-
-            .profile-dropdown {
-                width: 280px;
-                right: -10px;
-            }
-
-            /* Telefonlarda 2 ta ustun */
             .category-products .card {
-                width: calc(50vw - 30px);
-                min-width: 160px;
-            }
-
-            .category-products .card img {
-                height: 140px;
-            }
-
-            .card h3 {
-                font-size: 16px;
-            }
-
-            .price {
-                font-size: 16px;
-            }
-
-            .qty-btn {
-                padding: 4px;
-                font-size: 12px;
+                width: min(240px, 45vw);
             }
         }
 
         @media (max-width: 576px) {
-            .logo-container {
-                gap: 5px;
-            }
-
-            .logo-image {
-                width: 35px;
-                height: 35px;
-                font-size: 20px;
-            }
-
-            .logo-main {
-                font-size: 16px;
-            }
-
-            .logo-sub {
-                font-size: 7px;
-            }
-
-            .search-input {
-                width: 120px;
-                padding: 7px 25px 7px 10px;
-                font-size: 12px;
-            }
-
-            .search-input:focus {
-                width: 140px;
-            }
-
-            .profile-icon {
-                width: 35px;
-                height: 35px;
-            }
-
-            .cart-icon-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 15px;
-            }
-
-            .hamburger-menu {
-                padding: 6px;
-            }
-
-            .hamburger-menu span {
-                width: 22px;
-            }
-
-            .hero-left h1 {
-                font-size: 32px;
-            }
-
-            .circle-img {
-                width: 240px;
-                height: 240px;
-            }
-
-            .stats-box {
-                gap: 20px;
-            }
-
-            .stat-item h2 {
-                font-size: 26px;
-            }
-
-            .filter-btn {
-                padding: 8px 14px;
-                font-size: 11px;
-            }
-
-            .category-title {
-                font-size: 20px;
-            }
-
-            .mobile-menu {
-                width: 250px;
-            }
-
-            .mobile-menu-item {
-                padding: 10px 12px;
-                font-size: 14px;
-            }
-
             .category-products .card {
-                width: calc(50vw - 25px);
-                min-width: 140px;
+                width: min(200px, 42vw);
                 padding: 12px;
             }
 
@@ -1998,16 +1807,16 @@
             }
 
             .card h3 {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .product-weight {
-                font-size: 10px;
-                padding: 3px 8px;
+                font-size: 9px;
+                padding: 3px 6px;
             }
 
             .price {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .qty-btn {
@@ -2016,8 +1825,35 @@
             }
 
             .qty-value {
-                font-size: 12px;
+                font-size: 11px;
                 min-width: 25px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .logo-main {
+                font-size: 14px;
+            }
+
+            .logo-sub {
+                font-size: 6px;
+            }
+
+            .search-input {
+                width: 100px;
+            }
+
+            .category-products .card {
+                width: min(160px, 40vw);
+                padding: 8px;
+            }
+
+            .category-products .card img {
+                height: 100px;
+            }
+
+            .card h3 {
+                font-size: 12px;
             }
         }
 
@@ -2032,7 +1868,7 @@
             text-align: center;
             padding: 40px;
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: clamp(14px, 4vw, 18px);
             grid-column: 1 / -1;
         }
 
@@ -2050,8 +1886,8 @@
             right: 20px;
             background: var(--primary);
             color: #0f0b07;
-            width: 45px;
-            height: 45px;
+            width: clamp(40px, 10vw, 50px);
+            height: clamp(40px, 10vw, 50px);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -2060,7 +1896,7 @@
             opacity: 0;
             transition: 0.3s;
             border: none;
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 20px);
             z-index: 999;
         }
 
@@ -2090,6 +1926,7 @@
             margin-top: 10px;
             cursor: pointer;
             font-weight: 600;
+            font-size: clamp(12px, 3vw, 14px);
         }
 
         .tab-buttons {
@@ -2107,7 +1944,7 @@
             color: var(--text-light);
             cursor: pointer;
             font-weight: 600;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
         }
 
         .tab-button.active {
@@ -2163,7 +2000,7 @@
             border-radius: 8px;
             font-weight: 700;
             cursor: pointer;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
             transition: 0.3s;
             display: flex;
             align-items: center;
@@ -2200,7 +2037,7 @@
             border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
-            font-size: 12px;
+            font-size: clamp(11px, 2.5vw, 12px);
             transition: 0.3s;
             display: inline-flex;
             align-items: center;
@@ -2230,7 +2067,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 16px;
+            font-size: clamp(14px, 3.5vw, 16px);
         }
 
         .code-input {
@@ -2241,7 +2078,7 @@
             border-radius: 6px;
             color: white;
             margin-bottom: 10px;
-            font-size: 13px;
+            font-size: clamp(12px, 3vw, 13px);
         }
 
         .code-btn {
@@ -2253,7 +2090,7 @@
             font-weight: 600;
             cursor: pointer;
             margin-right: 8px;
-            font-size: 13px;
+            font-size: clamp(11px, 2.5vw, 13px);
         }
 
         .code-btn:hover {
@@ -2301,7 +2138,7 @@
     <nav>
         <!-- LOGOTIP - CHAP TOMONDA -->
         <div class="logo-container">
-            <div class="logo-image">🍽️</div>
+            <div class="logo-image"><span class="float-emoji">🍽️</span></div>
             <div class="logo-text">
                 <div class="logo-main">Fazo <span>foods</span></div>
                 <div class="logo-sub">180+ TAOMLAR</div>
@@ -2367,21 +2204,24 @@
             <div id="dashboard" class="admin-content active">
                 <h3>Statistika</h3>
                 <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 15px; margin: 20px 0;">
                     <div
                         style="background: rgba(245,179,66,0.1); padding: 20px; border-radius: 10px; text-align: center;">
-                        <div style="font-size: 30px; color: var(--primary);" id="totalOrdersStat">0</div>
-                        <div style="font-size: 14px;">Jami buyurtmalar</div>
+                        <div style="font-size: clamp(24px, 6vw, 36px); color: var(--primary);" id="totalOrdersStat">0
+                        </div>
+                        <div style="font-size: clamp(12px, 3vw, 14px);">Jami buyurtmalar</div>
                     </div>
                     <div
                         style="background: rgba(245,179,66,0.1); padding: 20px; border-radius: 10px; text-align: center;">
-                        <div style="font-size: 30px; color: var(--primary);" id="totalRevenueStat">0</div>
-                        <div style="font-size: 14px;">Jami daromad</div>
+                        <div style="font-size: clamp(24px, 6vw, 36px); color: var(--primary);" id="totalRevenueStat">0
+                        </div>
+                        <div style="font-size: clamp(12px, 3vw, 14px);">Jami daromad</div>
                     </div>
                     <div
                         style="background: rgba(245,179,66,0.1); padding: 20px; border-radius: 10px; text-align: center;">
-                        <div style="font-size: 30px; color: var(--primary);" id="totalProductsStat">0</div>
-                        <div style="font-size: 14px;">Mahsulotlar</div>
+                        <div style="font-size: clamp(24px, 6vw, 36px); color: var(--primary);" id="totalProductsStat">0
+                        </div>
+                        <div style="font-size: clamp(12px, 3vw, 14px);">Mahsulotlar</div>
                     </div>
                 </div>
                 <h3>Oxirgi buyurtmalar</h3>
@@ -2417,39 +2257,43 @@
                     mumkin)
                 </div>
 
-                <table class="users-table">
-                    <thead>
-                        <tr>
-                            <th>Ism</th>
-                            <th>Familiya</th>
-                            <th>Telefon</th>
-                            <th>Holat</th>
-                            <th>Max. buyurtma</th>
-                            <th>Amallar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="usersList"></tbody>
-                </table>
+                <div style="overflow-x: auto;">
+                    <table class="users-table">
+                        <thead>
+                            <tr>
+                                <th>Ism</th>
+                                <th>Familiya</th>
+                                <th>Telefon</th>
+                                <th>Holat</th>
+                                <th>Max. buyurtma</th>
+                                <th>Amallar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersList"></tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- ORDERS -->
             <div id="orders" class="admin-content">
                 <h3>Barcha buyurtmalar</h3>
-                <table class="orders-table">
-                    <thead>
-                        <tr>
-                            <th>Vaqt</th>
-                            <th>Mijoz</th>
-                            <th>Telefon</th>
-                            <th>Manzil</th>
-                            <th>Buyurtma</th>
-                            <th>Jami</th>
-                            <th>Eslatma</th>
-                            <th>Amallar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ordersList"></tbody>
-                </table>
+                <div style="overflow-x: auto;">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Vaqt</th>
+                                <th>Mijoz</th>
+                                <th>Telefon</th>
+                                <th>Manzil</th>
+                                <th>Buyurtma</th>
+                                <th>Jami</th>
+                                <th>Eslatma</th>
+                                <th>Amallar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersList"></tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- PRODUCTS - BARCHA RASMLARNI ALMASHTIRISH TUGMASI -->
@@ -2557,8 +2401,8 @@
             </div>
         </div>
         <div class="hero-right">
-            <img src="https://i.pinimg.com/736x/57/8a/10/578a1037f99f4989c434c8a20d22d37b.jpg" class="circle-img"
-                alt="Professional Salad">
+            <img src="https://t3.ftcdn.net/jpg/06/37/16/64/360_F_637166455_RZOHg6K3M6noLPKQmOHH5ZI70zXEyDaq.jpg"
+                class="circle-img" alt="Restaraunt">
         </div>
     </section>
 
