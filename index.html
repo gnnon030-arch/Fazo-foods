@@ -3884,7 +3884,7 @@
         }
 
         // ========================
-        // ADMIN PANEL
+        // ADMIN PANEL - O'ZGARTIRILGAN FUNKSIYALAR
         // ========================
         function toggleAdminPanel() {
             const panel = document.getElementById('adminPanel');
@@ -3892,7 +3892,19 @@
             const content = document.getElementById('adminContent');
 
             if (panel) panel.classList.toggle('active');
-            if (!isAdminLoggedIn) {
+
+            // Agar foydalanuvchi admin bo'lsa, to'g'ridan-to'g'ri panelni ochish
+            if (currentUser && currentUser.isAdmin) {
+                if (login) login.style.display = 'none';
+                if (content) content.style.display = 'block';
+                isAdminLoggedIn = true;
+                updateAdminStats();
+                displayOrders();
+                displayUsers();
+                displayProductsForEdit();
+            }
+            // Agar admin bo'lmasa, parol so'rash oynasini ko'rsatish
+            else if (!isAdminLoggedIn) {
                 if (login) login.style.display = 'block';
                 if (content) content.style.display = 'none';
             }
@@ -3900,6 +3912,8 @@
 
         function checkAdminPassword() {
             const password = document.getElementById('adminPassword').value;
+
+            // Admin paroli to'g'ri bo'lsa
             if (password === "00987") {
                 isAdminLoggedIn = true;
                 const login = document.getElementById('adminLogin');
@@ -3910,7 +3924,23 @@
                 displayOrders();
                 displayUsers();
                 displayProductsForEdit();
-            } else {
+            }
+            // Agar foydalanuvchi admin bo'lsa va parol noto'g'ri bo'lsa ham kirish imkoniyati
+            else if (currentUser && currentUser.isAdmin) {
+                isAdminLoggedIn = true;
+                const login = document.getElementById('adminLogin');
+                const content = document.getElementById('adminContent');
+                if (login) login.style.display = 'none';
+                if (content) content.style.display = 'block';
+                updateAdminStats();
+                displayOrders();
+                displayUsers();
+                displayProductsForEdit();
+
+                // Parol maydonini tozalash
+                document.getElementById('adminPassword').value = '';
+            }
+            else {
                 alert("❌ Noto'g'ri parol!");
             }
         }
@@ -4089,8 +4119,12 @@
         function toggleAdminRole(userId) {
             const user = users.find(u => u.id === userId);
             if (!user) return;
+
             if (!user.isAdmin) {
-                if (getAdminCount() >= 5) { alert("❌ Maksimal 5 ta admin bo'lishi mumkin!"); return; }
+                if (getAdminCount() >= 5) {
+                    alert("❌ Maksimal 5 ta admin bo'lishi mumkin!");
+                    return;
+                }
                 if (!confirm(`"${user.name} ${user.surname}" ga admin huquqi berilsinmi?`)) return;
                 user.isAdmin = true;
                 alert(`✅ ${user.name} admin qilindi!`);
@@ -4099,12 +4133,20 @@
                 user.isAdmin = false;
                 alert(`✅ ${user.name} dan admin huquqi olindi!`);
             }
+
             localStorage.setItem('users', JSON.stringify(users));
+
             if (currentUser && currentUser.id === userId) {
                 currentUser.isAdmin = user.isAdmin;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 updateProfileDropdown();
+
+                // Agar admin huquqi olib tashlansa va admin panel ochiq bo'lsa, yopish
+                if (!user.isAdmin && document.getElementById('adminPanel').classList.contains('active')) {
+                    toggleAdminPanel();
+                }
             }
+
             displayUsers();
         }
 
